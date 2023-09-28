@@ -83,6 +83,7 @@ def laser_mesurement(laser):
 ```
 
 Here is a video of the algorithm working
+
 [Screencast from 28-09-23 23:34:44.webm](https://github.com/ToniLMM/Blog-Robotica-Movil/assets/92941378/83e5691b-c9a3-4262-b55e-d074c8ca5757)
 
 
