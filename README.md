@@ -12,7 +12,7 @@ As I said before the first days were trial days where I became familiar with the
 
 ### Final Algorithm
 
-The second algorithm consists of a 4 state machine: 'FORWARD', 'BACK', 'TURN', 'SPIRAL'. This algorithm starts with a increasing spiral until the laser detects an obstacle. When the vacuum detects an obstacle goes back (state 'BACK') and immediately rotates with a random angle (state 'TURN'). After that the robot continues on its way in a straight line (state 'FORWARD') until it detects an obstacle again where the loop repeats indefinitely. However the spiral has a 5% of probability of being executed again.
+The second algorithm consists of a 4 state machine: 'FORWARD', 'BACK', 'TURN', 'SPIRAL'. This algorithm starts with a increasing spiral until the laser detects an obstacle. When the vacuum detects an obstacle goes back (state 'BACK') and immediately rotates with a random angle (state 'TURN'). After that the robot continues on its way in a straight line (state 'FORWARD') until it detects an obstacle again where the loop repeats indefinitely. In summary, it is a reactive code as requested in practice.
 
 This is the state 'SPIRAL'
 ```python
@@ -27,10 +27,6 @@ if current_state == RobotState.SPIRAL:
             rotation_period = 2 * PI / abs(W)  # Recalculate rotation period
             collision_start_time = time.time()
             current_state = RobotState.BACK
-
-        elif random.random() < SPIRAL_PROBABILITY:
-            print("SPIRAL")
-            current_state = RobotState.SPIRAL
 ```
 
 This is the state 'BACK'
@@ -61,7 +57,13 @@ elif current_state == RobotState.TURN:
 
 This is the state 'FORWARD'
 ```python
+elif current_state == RobotState.FORWARD:
+        print("FORWARD")
+        HAL.setV(MAX_SPEED)
+        HAL.setW(0)  # Stop rotating
 
+        if laser_dist_mesurement == False:
+          current_state = RobotState.BACK
 ```
 ### Observations
 
