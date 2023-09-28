@@ -14,7 +14,7 @@ As I said before the first days were trial days where I became familiar with the
 
 The second algorithm consists of a 4 state machine: 'FORWARD', 'BACK', 'TURN', 'SPIRAL'. This algorithm starts with a increasing spiral until the laser detects an obstacle. When the vacuum detects an obstacle goes back (state 'BACK') and immediately rotates with a random angle (state 'TURN'). After that the robot continues on its way in a straight line (state 'FORWARD') until it detects an obstacle again where the loop repeats indefinitely. In summary, it is a reactive code as requested in practice.
 
-This is the state 'SPIRAL'
+This is the state 'SPIRAL':
 ```python
 if current_state == RobotState.SPIRAL:
        
@@ -29,7 +29,7 @@ if current_state == RobotState.SPIRAL:
             current_state = RobotState.BACK
 ```
 
-This is the state 'BACK'
+This is the state 'BACK':
 ```python
 if current_state == RobotState.BACK:
       HAL.setV(-MAX_SPEED)
@@ -42,7 +42,7 @@ if current_state == RobotState.BACK:
           current_state = RobotState.TURN
 ```
 
-This is the state 'TURN'
+This is the state 'TURN':
 ```python
 elif current_state == RobotState.TURN:
         angle = random.uniform(MIN_ANGLE, MAX_ANGLE)
@@ -55,7 +55,7 @@ elif current_state == RobotState.TURN:
                   current_state = RobotState.FORWARD
 ```
 
-This is the state 'FORWARD'
+This is the state 'FORWARD':
 ```python
 elif current_state == RobotState.FORWARD:
         print("FORWARD")
@@ -64,6 +64,22 @@ elif current_state == RobotState.FORWARD:
 
         if laser_dist_mesurement == False:
           current_state = RobotState.BACK
+```
+This is the implementation of the laser:
+```python
+def parse_laser_data(laser_data):
+    laser = []
+    for i in range(180):
+        dist = laser_data.values[i]
+        angle = math.radians(i)
+        laser += [(dist, angle)]
+    return laser
+
+def laser_mesurement(laser): 
+    for i in range(60):
+      if laser[60+i][0] < MIN_DIST:
+        return False
+    return True
 ```
 ### Observations
 
