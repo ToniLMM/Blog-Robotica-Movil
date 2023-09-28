@@ -81,6 +81,14 @@ def laser_mesurement(laser):
         return False
     return True
 ```
+[Screencast from 28-09-23 23:34:44.webm](https://github.com/ToniLMM/Blog-Robotica-Movil/assets/92941378/83e5691b-c9a3-4262-b55e-d074c8ca5757)
+
+
+
+
+
+
+
 ### Observations
 
 In many attempts I have had problems with 2 specific places where the robot got stuck because the space between the table leg and the sofa was exactly the same as the width of the vacuum cleaner. That's why the robot always got stuck when it entered these holes
