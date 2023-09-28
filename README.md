@@ -14,6 +14,9 @@ As I said before the first days were trial days where I became familiar with the
 
 The second algorithm consists of a 4 state machine: 'FORWARD', 'BACK', 'TURN', 'SPIRAL'. This algorithm starts with a increasing spiral until the laser detects an obstacle. When the vacuum detects an obstacle goes back (state 'BACK') and immediately rotates with a random angle (state 'TURN'). After that the robot continues on its way in a straight line (state 'FORWARD') until it detects an obstacle again where the loop repeats indefinitely. In summary, it is a reactive code as requested in practice.
 
+
+#### (SPIRAL) ---> BACK ---> TURN ---> FORWARD ---> BACK ---> TURN ---> FORWARD.............  
+
 This is the state 'SPIRAL':
 ```python
 if current_state == RobotState.SPIRAL:
