@@ -14,6 +14,55 @@ As I said before the first days were trial days where I became familiar with the
 
 The second algorithm consists of a 4 state machine: 'FORWARD', 'BACK', 'TURN', 'SPIRAL'. This algorithm starts with a increasing spiral until the laser detects an obstacle. When the vacuum detects an obstacle goes back (state 'BACK') and immediately rotates with a random angle (state 'TURN'). After that the robot continues on its way in a straight line (state 'FORWARD') until it detects an obstacle again where the loop repeats indefinitely. However the spiral has a 5% of probability of being executed again.
 
+This is the state 'SPIRAL'
+```python
+if current_state == RobotState.SPIRAL:
+       
+        HAL.setV(V)
+        HAL.setW(W)
+
+        if (time.time() - time_start) > rotation_period:
+            time_start = time.time()
+            V -= 0.5
+            rotation_period = 2 * PI / abs(W)  # Recalculate rotation period
+            collision_start_time = time.time()
+            current_state = RobotState.BACK
+
+        elif random.random() < SPIRAL_PROBABILITY:
+            print("SPIRAL")
+            current_state = RobotState.SPIRAL
+```
+
+This is the state 'BACK'
+```python
+if current_state == RobotState.BACK:
+      HAL.setV(-MAX_SPEED)
+      HAL.setW(0)
+
+      if (time.time() - collision_start_time) > BACK_DURATION:
+          collision_start_time = time.time()
+          V = 1
+          W = V * PI
+          current_state = RobotState.TURN
+```
+
+This is the state 'TURN'
+```python
+elif current_state == RobotState.TURN:
+        angle = random.uniform(MIN_ANGLE, MAX_ANGLE)
+        HAL.setV(0)
+        HAL.setW(angle)
+
+        if (time.time() - collision_start_time) > TURN_DURATION:
+                  collision_start_time = time.time()
+                  print("FORWARD")
+                  current_state = RobotState.FORWARD
+```
+
+This is the state 'FORWARD'
+```python
+
+```
 ### Observations
 
 In many attempts I have had problems with 2 specific places where the robot got stuck because the space between the table leg and the sofa was exactly the same as the width of the vacuum cleaner. That's why the robot always got stuck when it entered these holes
