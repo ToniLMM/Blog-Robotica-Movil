@@ -7,7 +7,7 @@ This will be Toni's Mobile Robotics blog, where the status of the practices, the
 * [Practice 1][p1]
 * [Practice 2][p2]
 
-[Ind]: 
+[Ind]: https://github.com/ToniLMM/Blog-Robotica-Movil/blob/main/README.md#index
 [p1]: https://github.com/ToniLMM/Blog-Robotica-Movil/blob/main/README.md#practice-1-basic-vacuum-cleaner
 [p2]:
  
