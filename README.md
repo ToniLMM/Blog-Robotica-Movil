@@ -183,6 +183,9 @@ https://github.com/ToniLMM/Blog-Robotica-Movil/assets/92941378/664ed3fa-b93b-407
 
 In the previous video the time is 114 seconds, however a factor to take into account is the workload of the computer because time can vary. My best time was 107 seconds but depending on the performance of the computer it may vary. Nevertheless the average time of this version is around 110 seconds.
 
+
+For me the biggest difficulty of this practice has been finding suitable PIDs for the speeds because changing a simple value makes the car oscillate a lot and deviate very easily. Although it now continues to have oscillations, they are much smaller, in addition, it runs the circuit in less than 2 minutes, which is an acceptable time.
+
 ### Other circuits
 
 As I have put in the code, the other circuits work with this code but the parameters of the Vmax and the linear speed in the curves must be changed because these circuits have very tight curves that at high speed cannot be detected in time by the car.
