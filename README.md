@@ -162,7 +162,19 @@ Here you can see what the car does depending on whether it is a curve or a strai
     W = KP * error + KD * (error - prev_error) + KI * sum_error / i
 ```
 
+The 'is_curve' function evaluates whether an object in an image lies on a curve based on the difference in the object's position on the x-axis compared to a reference value and compares this error to a predefined threshold.
 
+This is the 'is_curve' function:
+```python
+def is_curve(image, error_threshold=0.15):
+    center = image_filtering(image)
+    object_x = center[0]
+    error_x = abs(329 - object_x) / 480
+    is_curved = error_x > error_threshold
+    return is_curved
+```
+
+Here is the video of the final version working:
 https://github.com/ToniLMM/Blog-Robotica-Movil/assets/92941378/664ed3fa-b93b-407c-9565-3c090de6a309
 
 
