@@ -149,6 +149,18 @@ reduced_image = image[220:460, 0:image.shape[1]]
 
 The 'speed' function is responsible for controlling the speed and direction of the vehicle, adjusting the linear and angular speed depending on whether it is in a curve or on a straight section of the circuit, using a PID controller for the angular speed.
 
+Here you can see what the car does depending on whether it is a curve or a straight line and the PID controller used for the angular velocity:
+```python
+    if is_curv:
+        KP, KI, KD = KP_curve, KI_curve, KD_curve
+        V = Vmax * 0.6 
+    else:
+        KP, KI, KD = KP_straight, KI_straight, KD_straight
+        V += time_increment * 0.7 
+        V = min(V, Vmax)
+
+    W = KP * error + KD * (error - prev_error) + KI * sum_error / i
+```
 
 
 https://github.com/ToniLMM/Blog-Robotica-Movil/assets/92941378/664ed3fa-b93b-407c-9565-3c090de6a309
