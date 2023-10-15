@@ -175,7 +175,17 @@ def is_curve(image, error_threshold=0.15):
 ```
 
 Here is the video of the final version working:
+
 https://github.com/ToniLMM/Blog-Robotica-Movil/assets/92941378/664ed3fa-b93b-407c-9565-3c090de6a309
+
+
+### Observations
+
+In the previous video the time is 114 seconds, however a factor to take into account is the workload of the computer because time can vary. My best time was 107 seconds but depending on the performance of the computer it may vary. Nevertheless the average time of this version is around 110 seconds.
+
+### Other circuits
+
+As I have put in the code, the other circuits work with this code but the parameters of the Vmax and the linear speed in the curves must be changed because these circuits have very tight curves that at high speed cannot be detected in time by the car.
 
 
 
