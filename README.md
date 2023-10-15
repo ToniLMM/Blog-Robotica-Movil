@@ -147,6 +147,8 @@ This is the line of code that allows the image to be reduced because the sky doe
 reduced_image = image[220:460, 0:image.shape[1]]
 ```
 
+The 'speed' function is responsible for controlling the speed and direction of the vehicle, adjusting the linear and angular speed depending on whether it is in a curve or on a straight section of the circuit, using a PID controller for the angular speed.
+
 
 
 https://github.com/ToniLMM/Blog-Robotica-Movil/assets/92941378/664ed3fa-b93b-407c-9565-3c090de6a309
