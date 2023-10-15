@@ -125,6 +125,30 @@ This final version is a mix of speed and staying on top of the line as much as p
 
 #### Performance and structure
 
+This final version is structures with 3 functions: 'image_filtering', 'speed' and 'is_curve'.
+
+The 'image_filtering' function applies a red mask to distinguish the line, in addition provides a reduced image for greater efficiency of the PIDs and a centroid that marks the center of the red line
+
+This is the red mask applied in the function:
+```python
+    img_hsv = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
+    lower_red = np.array([0, 50, 50])
+    upper_red = np.array([10, 255, 255])
+    mask0 = cv2.inRange(img_hsv, lower_red, upper_red)
+    lower_red = np.array([170, 50, 50])
+    upper_red = np.array([180, 255, 255])
+    mask1 = cv2.inRange(img_hsv, lower_red, upper_red)
+    mask = cv2.add(mask0, mask1)
+```
+
+
+This is the line of code that allows the image to be reduced because the sky does not provide any useful information in this practice:
+```python
+reduced_image = image[220:460, 0:image.shape[1]]
+```
+
+
+
 https://github.com/ToniLMM/Blog-Robotica-Movil/assets/92941378/664ed3fa-b93b-407c-9565-3c090de6a309
 
 
