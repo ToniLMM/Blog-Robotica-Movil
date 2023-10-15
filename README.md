@@ -114,3 +114,17 @@ In many attempts I have had problems with 2 specific places where the robot got 
 
 ## Practice 2: Follow line
 This second practice consists of a Formula 1 car that must follow the center of the red line and complete the circuit as quickly as possible. The goal of this exercise is to perform a PID reactive control capable of following the line painted on the racing circuit
+
+### First days
+
+### Final version
+
+https://github.com/ToniLMM/Blog-Robotica-Movil/assets/92941378/664ed3fa-b93b-407c-9565-3c090de6a309
+
+
+
+
+
+
+
+
