@@ -9,7 +9,7 @@ This will be Toni's Mobile Robotics blog, where the status of the practices, the
 
 [Ind]: https://github.com/ToniLMM/Blog-Robotica-Movil/blob/main/README.md#index
 [p1]: https://github.com/ToniLMM/Blog-Robotica-Movil/blob/main/README.md#practice-1-basic-vacuum-cleaner
-[p2]: https://github.com/ToniLMM/Blog-Robotica-Movil/edit/main/README.md#practice-2-follow-line
+[p2]: https://github.com/ToniLMM/Blog-Robotica-Movil/blob/main/README.md#practice-2-follow-line
  
 ## Practice 1: Basic Vacuum Cleaner
 During this practice I've been testing with sensors and actuators with simple values. From my point of view that's the best way to know how the vacuum react to different situations and scenarios. Other than that the first days I've been also testing with the spiral motion.
