@@ -117,7 +117,13 @@ This second practice consists of a Formula 1 car that must follow the center of 
 
 ### First days
 
+During the first days I was testing the movements of the car and how it reacted to the curves of the red line. I also tried different color masks to familiarize myself with the environment. At first I started with a black and white mask that was later replaced by the current red mask. Finally, I implemented some basic PIDs to test at small speeds how the car behaved on different circuits.
+
 ### Final version
+
+This final version is a mix of speed and staying on top of the line as much as possible. However, speed is prioritized a little more than going above the line, because minimum times are required in this practice. Even if speed is prioritized, line tracking continues at all times. If it is necessary to be on top of the line all time, the maximum speed can be reduced and the PIDs adjusted, in this way the car can correct its trajectory more efficiently and effectively and make smoother movements.
+
+#### Performance and structure
 
 https://github.com/ToniLMM/Blog-Robotica-Movil/assets/92941378/664ed3fa-b93b-407c-9565-3c090de6a309
 
