@@ -11,7 +11,7 @@ This will be Toni's Mobile Robotics blog, where the status of the practices, the
 [Ind]: https://github.com/ToniLMM/Blog-Robotica-Movil/blob/main/README.md#index
 [p1]: https://github.com/ToniLMM/Blog-Robotica-Movil/blob/main/README.md#practice-1-basic-vacuum-cleaner
 [p2]: https://github.com/ToniLMM/Blog-Robotica-Movil/blob/main/README.md#practice-2-follow-line
-[p3]:
+[p3]: https://github.com/ToniLMM/Blog-Robotica-Movil/blob/main/README.md#practice-3-obstacle-avoidance
  
 ## Practice 1: Basic Vacuum Cleaner
 During this practice I've been testing with sensors and actuators with simple values. From my point of view that's the best way to know how the vacuum react to different situations and scenarios. Other than that the first days I've been also testing with the spiral motion.
@@ -193,7 +193,9 @@ For me the biggest difficulty of this practice has been finding suitable PIDs fo
 As I have put in the code, the other circuits work with this code but the parameters of the Vmax and the linear speed in the curves must be changed because these circuits have very tight curves that at high speed cannot be detected in time by the car.
 
 ## Practice 3: Obstacle avoidance
+The objective of this third practice is to implement the logic of the VFF navigation algorithm. This algorithm consists of each object generating a repulsive force towards the robot, while the target generates an attractive force. The main objective is for the car to complete a lap of the circuit, however more levels of difficulty can be added such as: doing it as fast as possible, choosing the safest path...
 
+### First days
 
 
 
