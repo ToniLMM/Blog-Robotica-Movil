@@ -197,6 +197,10 @@ The objective of this third practice is to implement the logic of the VFF naviga
 
 ### First days
 
+During the first days I've been testing with different functions and ways to see how the robot behaved in different situations and obstacles. At first, when the robot moved, the laser detected the car but the force vectors were not well configured, therefore it ran over the first car and continued in a straight line. Another problem that arose for me was taking targets since there were some under obstacles and therefore the car collided with them regardless of the repulsive force vector. Finally, another of the big problems was calculating the weight of the values ​​of the vectors that had to be put on them so that the car did not collide, because if these values ​​were not adjusted correctly, the car would have strange behaviors and would collide on many occasions with obstacles.
+
+### Final version
+
 
 
 
