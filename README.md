@@ -201,9 +201,10 @@ During the first days I've been testing with different functions and ways to see
 
 ### Final version
 
+The final version of the VFF navigation algorithm consists of a series of functions that allow us to avoid obstacles with forces thanks to laser data, know the current position of the car and know the position of the current target.
 
+This is the 'absolute2relative' function that allow us to convert absolute coordinates to relative ones:
 ```python3
-def absolute2relative(x_abs, y_abs, robotx, roboty, robott):
     dx = x_abs - robotx
     dy = y_abs - roboty
     x_rel = dx * math.cos(-robott) - dy * math.sin(-robott)
@@ -211,7 +212,8 @@ def absolute2relative(x_abs, y_abs, robotx, roboty, robott):
     return x_rel, y_rel
 ```
 
-
+'parse_laser_data' takes data from the laser and converts it into a list of pairs (distance, angle) in radians. This is used to calculate the repulsive forces.
+On the other hand 'laser_vector' takes a list of pairs (distance, angle) and converts it to a list of pairs (x, y) in the robot's reference frame.
 ```python3
 def parse_laser_data(laser_data):
     laser = [(dist / 1000.0, math.radians(i)) for i, dist in enumerate(laser_data.values)]
@@ -221,9 +223,8 @@ def laser_vector(laser):
     return [(d * math.cos(a - math.pi/2) * -1, d * math.sin(a - math.pi/2) * -1) for d, a in laser]
 ```
 
-
+Here's how the attractive force is calculated:
 ```python3
-def attractive_force(x_rel, y_rel):
     att_module = math.hypot(x_rel, y_rel)
     att_phase = math.atan2(y_rel, x_rel)
     if att_module > 2:
@@ -231,9 +232,8 @@ def attractive_force(x_rel, y_rel):
     return att_module * math.cos(att_phase), att_module * math.sin(att_phase)
 ```
 
-
+In contrast this is how the repulsive force is calculated:
 ```python3
-def repulsive_force(laser):
     sumX, sumY = 0, 0
     for d, a in laser:
         x = (1 / d) * math.cos(a - math.pi/2) * -1
@@ -243,7 +243,7 @@ def repulsive_force(laser):
     return sumX, sumY
 ```
 
-
+This function gets the position of the current target, marks the target as reached, and returns the (x,y) coordinates of the target:
 ```python3
 def get_current_target_position():
     current_target = GUI.map.getNextTarget()
@@ -252,6 +252,7 @@ def get_current_target_position():
     return current_target.getPose().x, current_target.getPose().y
 ```
 
+Finally this function updates the forces acting on the robot (attractive and repulsive force) and then sets the speed of the robot
 ```python3
 def update_forces_and_velocity(att_force, rep_force, target_position):
     GUI.map.targetx, GUI.map.targety = target_position
