@@ -202,6 +202,68 @@ During the first days I've been testing with different functions and ways to see
 ### Final version
 
 
+```python3
+def absolute2relative(x_abs, y_abs, robotx, roboty, robott):
+    dx = x_abs - robotx
+    dy = y_abs - roboty
+    x_rel = dx * math.cos(-robott) - dy * math.sin(-robott)
+    y_rel = dx * math.sin(-robott) + dy * math.cos(-robott)
+    return x_rel, y_rel
+```
+
+
+```python3
+def parse_laser_data(laser_data):
+    laser = [(dist / 1000.0, math.radians(i)) for i, dist in enumerate(laser_data.values)]
+    return laser
+
+def laser_vector(laser):
+    return [(d * math.cos(a - math.pi/2) * -1, d * math.sin(a - math.pi/2) * -1) for d, a in laser]
+```
+
+
+```python3
+def attractive_force(x_rel, y_rel):
+    att_module = math.hypot(x_rel, y_rel)
+    att_phase = math.atan2(y_rel, x_rel)
+    if att_module > 2:
+        att_module = 2
+    return att_module * math.cos(att_phase), att_module * math.sin(att_phase)
+```
+
+
+```python3
+def repulsive_force(laser):
+    sumX, sumY = 0, 0
+    for d, a in laser:
+        x = (1 / d) * math.cos(a - math.pi/2) * -1
+        y = (1 / d) * math.sin(a - math.pi/2) * -1
+        sumX += x
+        sumY += y
+    return sumX, sumY
+```
+
+
+```python3
+def get_current_target_position():
+    current_target = GUI.map.getNextTarget()
+    current_target.setReached(True)
+    
+    return current_target.getPose().x, current_target.getPose().y
+```
+
+```python3
+def update_forces_and_velocity(att_force, rep_force, target_position):
+    GUI.map.targetx, GUI.map.targety = target_position
+    GUI.map.carx, GUI.map.cary = att_force
+    GUI.map.obsx, GUI.map.obsy = rep_force
+    res_vector = (ALPHA * att_force[0] + BETA * rep_force[0], ALPHA * att_force[1] + BETA * rep_force[1])
+    GUI.map.avgx, GUI.map.avgy = res_vector
+    HAL.setV(res_vector[0])
+    HAL.setW(res_vector[1])
+```
+
+
 
 
 
