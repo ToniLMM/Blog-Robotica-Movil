@@ -266,5 +266,9 @@ def update_forces_and_velocity(att_force, rep_force, target_position):
 
 
 
+https://github.com/ToniLMM/Blog-Robotica-Movil/assets/92941378/5d4989a2-7d2a-42fb-95d2-8dc9c31ed6e7
+
+
+
 
 
