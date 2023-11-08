@@ -13,7 +13,7 @@ This will be Toni's Mobile Robotics blog, where the status of the practices, the
 [p1]: https://github.com/ToniLMM/Blog-Robotica-Movil/blob/main/README.md#practice-1-basic-vacuum-cleaner
 [p2]: https://github.com/ToniLMM/Blog-Robotica-Movil/blob/main/README.md#practice-2-follow-line
 [p3]: https://github.com/ToniLMM/Blog-Robotica-Movil/blob/main/README.md#practice-3-obstacle-avoidance
-[p4]: 
+[p4]: https://github.com/ToniLMM/Blog-Robotica-Movil/blob/main/README.md#practice-4-global-navigation
  
 ## Practice 1: Basic Vacuum Cleaner
 During this practice I've been testing with sensors and actuators with simple values. From my point of view that's the best way to know how the vacuum react to different situations and scenarios. Other than that the first days I've been also testing with the spiral motion.
@@ -273,7 +273,9 @@ https://github.com/ToniLMM/Blog-Robotica-Movil/assets/92941378/5d4989a2-7d2a-42f
 
 ## Practice 4: Global Navigation
 
+The objective of this practice is to implement the logic of a Gradient Path Planning (GPP) algorithm. Selected a destination, the GPP algorithm is responsible for finding the shortest path to it, avoiding, in the case of this practice, everything that is not road. Once the path has been selected, the logic necessary to follow this path and reach the objective must be implemented in the robot. With this, it is possible for the robot to go to the marked destination autonomously and following the shortest path.
 
+### First days
 
 
 
