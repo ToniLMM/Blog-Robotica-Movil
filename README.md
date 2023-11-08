@@ -7,11 +7,13 @@ This will be Toni's Mobile Robotics blog, where the status of the practices, the
 * [Practice 1][p1]
 * [Practice 2][p2]
 * [Practice 3][p3]
+* [Practice 4][p4]
 
 [Ind]: https://github.com/ToniLMM/Blog-Robotica-Movil/blob/main/README.md#index
 [p1]: https://github.com/ToniLMM/Blog-Robotica-Movil/blob/main/README.md#practice-1-basic-vacuum-cleaner
 [p2]: https://github.com/ToniLMM/Blog-Robotica-Movil/blob/main/README.md#practice-2-follow-line
 [p3]: https://github.com/ToniLMM/Blog-Robotica-Movil/blob/main/README.md#practice-3-obstacle-avoidance
+[p4]: 
  
 ## Practice 1: Basic Vacuum Cleaner
 During this practice I've been testing with sensors and actuators with simple values. From my point of view that's the best way to know how the vacuum react to different situations and scenarios. Other than that the first days I've been also testing with the spiral motion.
@@ -267,6 +269,9 @@ def update_forces_and_velocity(att_force, rep_force, target_position):
 
 
 https://github.com/ToniLMM/Blog-Robotica-Movil/assets/92941378/5d4989a2-7d2a-42fb-95d2-8dc9c31ed6e7
+
+
+## Practice 4: Global Navigation
 
 
 
