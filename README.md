@@ -280,9 +280,12 @@ The objective of this practice is to implement the logic of a Gradient Path Plan
 
 ### Final version
 
+And here we have some examples of the algorithm working:
+
 [Screencast from 04-12-23 23:02:02.webm](https://github.com/ToniLMM/Blog-Robotica-Movil/assets/92941378/fd7a32eb-1d68-4ec7-be96-d5d39e7b1b38)
 
 
+[Screencast from 05-12-23 00:44:30.webm](https://github.com/ToniLMM/Blog-Robotica-Movil/assets/92941378/3c80d16d-5b6a-438a-a4dd-ac016bffcd56)
 
 
 
