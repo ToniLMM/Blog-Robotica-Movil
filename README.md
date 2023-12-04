@@ -277,5 +277,7 @@ The objective of this practice is to implement the logic of a Gradient Path Plan
 
 ### First days
 
+### Final version
+
 
 
