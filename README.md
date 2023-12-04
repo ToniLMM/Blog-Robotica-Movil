@@ -275,9 +275,14 @@ https://github.com/ToniLMM/Blog-Robotica-Movil/assets/92941378/5d4989a2-7d2a-42f
 
 The objective of this practice is to implement the logic of a Gradient Path Planning (GPP) algorithm. Selected a destination, the GPP algorithm is responsible for finding the shortest path to it, avoiding, in the case of this practice, everything that is not road. Once the path has been selected, the logic necessary to follow this path and reach the objective must be implemented in the robot. With this, it is possible for the robot to go to the marked destination autonomously and following the shortest path.
 
+
 ### First days
 
 ### Final version
+
+[Screencast from 04-12-23 23:02:02.webm](https://github.com/ToniLMM/Blog-Robotica-Movil/assets/92941378/fd7a32eb-1d68-4ec7-be96-d5d39e7b1b38)
+
+
 
 
 
