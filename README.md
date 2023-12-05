@@ -278,7 +278,11 @@ The objective of this practice is to implement the logic of a Gradient Path Plan
 
 ### First days
 
+During the first days I was trying different ways to make the grid, with different search algorithms. However, once the grid was completed, the hardest part was already done. At first I had problems at many points in the practice, but the main one was that the car crashed into the walls. Although I had a widening of the obstacles, it was not enough for the car and in many points of the map it crashed into the corners. It took me a while to realize the mistake but I finally fixed it by widening the obstacles further.
+
 ### Final version
+
+
 
 This is the binarize_map function which is used to mark the positions of walls on the grid and expand the obstacle region around those walls in all directions:
 ```python3
