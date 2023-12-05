@@ -282,7 +282,8 @@ During the first days I was trying different ways to make the grid, with differe
 
 ### Final version
 
-
+This algorithm plans and controls the robot's navigation to a destination in an environment with obstacles using gradient and attraction techniques. Visualization of the path and position of the robot is carried out through graphical interface 'GUI'. First, a navigation objective is defined, represented by coordinates on the map. 
+Second a grid is created that represents the navigation environment. Walls and obstacles on the map are marked on the grid. Third, a gradient is filled between the robot's current position and the target, identifying obstacles and generating a path in the grid. Fourth, subgoals are set along the path to guide the movement of the robot. Fifth, in an infinite loop, the robot adjusts its position and orientation based on the attraction toward the next subgoal. Finally the loop stops when the final destination is reached, and the robot stops
 
 This is the binarize_map function which is used to mark the positions of walls on the grid and expand the obstacle region around those walls in all directions:
 ```python3
