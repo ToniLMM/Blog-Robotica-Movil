@@ -288,6 +288,6 @@ And here we have some examples of the algorithm working:
 [Screencast from 05-12-23 00:44:30.webm](https://github.com/ToniLMM/Blog-Robotica-Movil/assets/92941378/3c80d16d-5b6a-438a-a4dd-ac016bffcd56)
 
 
-![video](home/alumnos/tonilmm/Descargas/WhatsApp%20Video%202023-12-05%20at%2012.23.57.gif)
+![video](https://github.com/ToniLMM/Blog-Robotica-Movil/blob/main/images/WhatsApp%20Video%202023-12-05%20at%2012.23.57.gif)
 
 
