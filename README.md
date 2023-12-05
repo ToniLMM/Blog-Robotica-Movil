@@ -293,7 +293,7 @@ def binarize_map(walls, grid):
     GUI.showNumpy(grid)
 ```
 
-
+The fill_gradient function fills the gradient between the initial and final state on the grid, extracting obstacles along the way and showing the evolution of the grid at each iteration:
 ```python3
 def fill_gradient(initial_state, final_state, grid):
     gpp = [(initial_state, 0)]
@@ -332,6 +332,7 @@ def fill_gradient(initial_state, final_state, grid):
     return obstacles
 ```
 
+The get unsigned_weights computes unsigned weights for reachable neighbors of a state on a grid, considering cardinal and diagonal directions:
 ```python3
 def get_unsigned_weights(state, cost, grid):
     x, y = state
@@ -366,6 +367,7 @@ def get_unsigned_weights(state, cost, grid):
     return weights
 ```
 
+The assign_weights function extracts values ​​from neighboring cells in the cardinal and diagonal directions of a state in the grid and returns them as a list:
 ```python3
 def assign_weights(state, grid):
     x, y = state
@@ -381,6 +383,7 @@ def assign_weights(state, grid):
     return weights
 ```
 
+The path_exctraction function follow the directions of least weight from the starting position to the target position on the grid, avoiding infinite loops and building a path along the way:
 ```python3
 def path_extraction(target, grid):
     path = []
@@ -427,6 +430,7 @@ def path_extraction(target, grid):
     return path
 ```
 
+The grid2world function adjusts the grid coordinates using a specific transformation to obtain the corresponding coordinates in the world
 ```python3
 def grid2world(grid_coords):
     x, y = grid_coords
