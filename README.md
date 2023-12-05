@@ -280,6 +280,161 @@ The objective of this practice is to implement the logic of a Gradient Path Plan
 
 ### Final version
 
+This is the binarize_map function which is used to mark the positions of walls on the grid and expand the obstacle region around those walls in all directions:
+```python3
+def binarize_map(walls, grid):
+    for x, y in walls:
+        grid[x, y] = 255
+        for i in range(-2, 3):
+            for j in range(-2, 3):
+                new_x, new_y = x + i, y + j
+                if in_bounds(new_x, new_y) and grid[new_x, new_y] != 0:
+                    grid[new_x, new_y] = 255
+    GUI.showNumpy(grid)
+```
+
+
+```python3
+def fill_gradient(initial_state, final_state, grid):
+    gpp = [(initial_state, 0)]
+    obstacles = []
+    extra_it = 0
+
+    while gpp:
+        GUI.showNumpy(grid)
+        current_state, current_cost = pop(gpp)
+        x, y = current_state
+
+        if final_state == current_state:
+            while extra_it < extra_iterations:
+                if binary_map[x, y] == 0:
+                    obstacles.append(current_state)
+                else:
+                    for weight in get_unsigned_weights(current_state, current_cost, grid):
+                        set_value_map(initial_state, weight[0], weight[1], grid)
+                        push(gpp, weight)
+                GUI.showNumpy(grid)
+                try:
+                    current_state, current_cost = pop(gpp)
+                except IndexError:
+                    break
+                x, y = current_state
+                extra_it += 1
+            break
+
+        if binary_map[x, y] == 0:
+            obstacles.append(current_state)
+        else:
+            for weight in get_unsigned_weights(current_state, current_cost, grid):
+                set_value_map(initial_state, weight[0], weight[1], grid)
+                push(gpp, weight)
+
+    return obstacles
+```
+
+```python3
+def get_unsigned_weights(state, cost, grid):
+    x, y = state
+    weights = []
+    try:
+        if (grid[x - 1][y] == 0) and ((x - 1) >= 0):
+            N_NE = ((x - 1, y), cost + 1)
+            weights.append(N_NE)
+        if (grid[x][y + 1] == 0) and ((y + 1) < columns):
+            E_NE = ((x, y + 1), cost + 1)
+            weights.append(E_NE)
+        if (grid[x + 1][y] == 0) and ((x + 1) < rows):
+            S_NE = ((x + 1, y), cost + 1)
+            weights.append(S_NE)
+        if (grid[x][y - 1] == 0) and ((y - 1) >= 0):
+            W_NE = ((x, y - 1), cost + 1)
+            weights.append(W_NE)
+        if (grid[x - 1][y + 1] == 0) and ((x - 1) >= 0) and ((y + 1) < columns):
+            NE_NE = ((x - 1, y + 1), cost + diagonal_direction)
+            weights.append(NE_NE)
+        if (grid[x + 1][y + 1] == 0) and ((x + 1) < rows) and ((y + 1) < columns):
+            SE_NE = ((x + 1, y + 1), cost + diagonal_direction)
+            weights.append(SE_NE)
+        if (grid[x + 1][y - 1] == 0) and ((x + 1) < rows) and ((y - 1) >= 0):
+            SW_NE = ((x + 1, y - 1), cost + diagonal_direction)
+            weights.append(SW_NE)
+        if (grid[x - 1][y - 1] == 0) and ((x - 1) >= 0) and ((y - 1) >= 0):
+            NW_NE = ((x - 1, y - 1), cost + diagonal_direction)
+            weights.append(NW_NE)
+    except IndexError:
+        return weights
+    return weights
+```
+
+```python3
+def assign_weights(state, grid):
+    x, y = state
+    N = grid[x - 1][y]
+    E = grid[x][y + 1]
+    S = grid[x + 1][y]
+    W = grid[x][y - 1]
+    NE = grid[x - 1][y + 1]
+    SE = grid[x + 1][y + 1]
+    SW = grid[x + 1][y - 1]
+    NW = grid[x - 1][y - 1]
+    weights = [N, E, S, W, NE, SE, SW, NW]
+    return weights
+```
+
+```python3
+def path_extraction(target, grid):
+    path = []
+    current_state = list(target)
+
+    visited_states = set()
+
+    while in_bounds(current_state[0], current_state[1]) and grid[current_state[0]][current_state[1]] != 0:
+        if tuple(current_state) in visited_states:
+            break
+
+        path.append(current_state)
+        visited_states.add(tuple(current_state))
+
+        x, y = current_state
+        weights = assign_weights(current_state, grid)
+        
+        if not weights:
+            break
+
+        direction = weights.index(min(weights))
+        dx, dy = 0, 0
+
+        if direction == N:
+            dx = -1
+        elif direction == E:
+            dy = 1
+        elif direction == S:
+            dx = 1
+        elif direction == W:
+            dy = -1
+        elif direction == NE:
+            dx, dy = -1, 1
+        elif direction == SE:
+            dx, dy = 1, 1
+        elif direction == SW:
+            dx, dy = 1, -1
+        elif direction == NW:
+            dx, dy = -1, -1
+
+        current_state = [x + dx, y + dy]
+
+    path.append(current_state)
+    return path
+```
+
+```python3
+def grid2world(grid_coords):
+    x, y = grid_coords
+    WORLD_X = (x - 200) * 1.25
+    WORLD_Y = (y - 200) * 1.25
+    return [WORLD_X, WORLD_Y]
+```
+
 And here we have some examples of the algorithm working:
 
 [Screencast from 04-12-23 23:02:02.webm](https://github.com/ToniLMM/Blog-Robotica-Movil/assets/92941378/fd7a32eb-1d68-4ec7-be96-d5d39e7b1b38)
