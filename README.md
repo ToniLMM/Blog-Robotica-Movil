@@ -461,4 +461,8 @@ And here we have some examples of the algorithm working:
 The aim of this practice is to develop a visual localisation algorithm based on the particle filter (Montecarlo method).
 
 ### First days
+During the first days I was looking and combining the codes that the teacher gave us. Obviously the first attempts were for the particles to move around the map with the robot's pose, however no weights were assigned yet.
+A small advance was to make the particles initialize throughout the map, avoiding initialization on top of obstacles.
+Before:
 
+After:
