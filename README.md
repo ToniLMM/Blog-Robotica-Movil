@@ -482,7 +482,15 @@ After:
 The final result is a code composed of 6 functions mainly: 
 1. The function 'initialize_particles' generates random particles within the map boundaries and ensures that the particles are not in a position initially occupied
 2. The function 'update_particle_pose' updates the position and orientation of the particles based on the linear and angular velocities of the robot. It also introduces Gaussian noise to simulate uncertainty.
-3. The function 'simulate_virtual_laser' simulates virtual laser measurements for each particle based on the particle's position and orientation.
+3. The function 'p_virtual_laser' simulates virtual laser measurements for each particle based on the particle's position and orientation.
 4. The function 'compute_particle_weights' calculates the weights of each particle based on the difference between real and simulated laser measurements
 5. The function 'resample_particles' resamples particles based on their weights, giving more weight to those that best fit laser measurements
 6. The function 'propagate_particles' estimates the robot's motion since the last update and propagates the particle pose accordingly
+
+
+
+https://github.com/ToniLMM/Blog-Robotica-Movil/assets/92941378/acd8a534-240f-4bb8-acc6-06d3926a85bf
+
+
+
+It is not the expected result since the particles do not finally converge on the position of the robot. This may be due to a bad calculation in the compute_particle_weights function or that the laser measurements have not been correctly taken in p_virtual_laser. However, it will be corrected and modified in the future for its correct functioning.
