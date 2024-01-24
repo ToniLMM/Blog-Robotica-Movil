@@ -463,6 +463,15 @@ The aim of this practice is to develop a visual localisation algorithm based on 
 ### First days
 During the first days I was looking and combining the codes that the teacher gave us. Obviously the first attempts were for the particles to move around the map with the robot's pose, however no weights were assigned yet.
 A small advance was to make the particles initialize throughout the map, avoiding initialization on top of obstacles.
+
 Before:
 
+
+![Captura de pantalla 2024-01-24 210745](https://github.com/ToniLMM/Blog-Robotica-Movil/assets/92941378/05849376-011c-4f04-b027-b9f889239cd1)
+
+
+
 After:
+
+
+![Captura de pantalla 2024-01-24 210545](https://github.com/ToniLMM/Blog-Robotica-Movil/assets/92941378/08a7760f-8ec4-42a9-a8cf-c32be436db65)
